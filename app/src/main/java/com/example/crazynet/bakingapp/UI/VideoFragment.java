@@ -1,5 +1,6 @@
 package com.example.crazynet.bakingapp.UI;
 
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
@@ -29,6 +30,8 @@ import com.google.android.exoplayer2.util.Util;
 
 import java.util.ArrayList;
 
+import static android.content.Context.MODE_PRIVATE;
+
 /**
  * Created by CrazyNet on 03/03/2019.
  */
@@ -37,6 +40,7 @@ public class VideoFragment extends Fragment{
 
     private ArrayList<StepsItem> arrayList;
     private int position ;
+    private static Long time = Long.valueOf(0);
     private SimpleExoPlayer mExoPlayer;
     private SimpleExoPlayerView mPlayerView;
 
@@ -55,17 +59,24 @@ public class VideoFragment extends Fragment{
         if(savedInstanceState != null){
             arrayList = savedInstanceState.getParcelableArrayList("mySteps");
             position = savedInstanceState.getInt("pos");
+            time = savedInstanceState.getLong("time");
+            SharedPreferences.Editor editor = getContext().getSharedPreferences("shared", MODE_PRIVATE).edit();
+            editor.putLong("time", time);
+            editor.apply();
         }
 
         if(arrayList != null){
             TextView textView = view.findViewById(R.id.text);
             textView.setText(String.valueOf(arrayList.get(position).getDescription()));
+
             if(mExoPlayer != null){
+                mExoPlayer.setPlayWhenReady(false);
                 mExoPlayer.release();
                 mExoPlayer.stop();
                 mExoPlayer = null;
             }
-            initializePlayer(Uri.parse(arrayList.get(position).getVideoURL()));
+
+
 
             int orientation = getResources().getConfiguration().orientation;
             if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
@@ -87,7 +98,7 @@ public class VideoFragment extends Fragment{
        position = mposition;
     }
 
-    private void initializePlayer(Uri mediaUri) {
+    private void initializePlayer(Uri mediaUri , Long time) {
         if (mExoPlayer == null) {
             // Create an instance of the ExoPlayer.
             TrackSelector trackSelector = new DefaultTrackSelector();
@@ -95,24 +106,28 @@ public class VideoFragment extends Fragment{
             mExoPlayer = ExoPlayerFactory.newSimpleInstance(this.getContext(), trackSelector, loadControl);
             mPlayerView.setPlayer(mExoPlayer);
 
-            // Set the ExoPlayer.EventListener to this activity.
-           // mExoPlayer.addListener(this);
 
-            // Prepare the MediaSource.
             String userAgent = Util.getUserAgent(this.getContext(), "bakingapp");
             MediaSource mediaSource = new ExtractorMediaSource(mediaUri, new DefaultDataSourceFactory(
                     this.getContext(), userAgent), new DefaultExtractorsFactory(), null, null);
             mExoPlayer.prepare(mediaSource);
+            mExoPlayer.seekTo(time);
             mExoPlayer.setPlayWhenReady(true);
         }
     }
 
     @Override
-    public void onPause() {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+       time = getContext().getSharedPreferences("shared", MODE_PRIVATE).getLong("time",Long.valueOf(0));
+        super.onCreate(savedInstanceState);
+    }
 
+    @Override
+    public void onPause() {
         if (mExoPlayer != null) {
+            time = mExoPlayer.getCurrentPosition();
+            mExoPlayer.setPlayWhenReady(false);
             mExoPlayer.release();
-            mExoPlayer.stop();
             mExoPlayer = null;
             //mPlayerView = null;
         }
@@ -121,9 +136,16 @@ public class VideoFragment extends Fragment{
 
 
     @Override
+    public void onStart() {
+        initializePlayer(Uri.parse(arrayList.get(position).getVideoURL()),time);
+        super.onStart();
+    }
+
+    @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         outState.putParcelableArrayList("mySteps",arrayList);
         outState.putInt("pos",position);
+        outState.putLong("time",time);
         super.onSaveInstanceState(outState);
     }
 
