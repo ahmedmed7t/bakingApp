@@ -118,7 +118,7 @@ public class VideoFragment extends Fragment{
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-       time = getContext().getSharedPreferences("shared", MODE_PRIVATE).getLong("time",Long.valueOf(0));
+        time = getContext().getSharedPreferences("shared", MODE_PRIVATE).getLong("time",Long.valueOf(0));
         super.onCreate(savedInstanceState);
     }
 
@@ -149,5 +149,11 @@ public class VideoFragment extends Fragment{
         super.onSaveInstanceState(outState);
     }
 
-
+    @Override
+    public void onStop() {
+        SharedPreferences.Editor sharedPreferences = getContext().getSharedPreferences("shared", MODE_PRIVATE).edit();
+        sharedPreferences.putLong("time",Long.valueOf(0));
+        sharedPreferences.apply();
+        super.onStop();
+    }
 }
