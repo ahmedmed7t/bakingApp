@@ -4,12 +4,18 @@ Baking App
 this app is made by Ahmed Medhat
 it's for a usacity android development nanoDegree program
 
-print("hello world");
-
 it get 4 dishes and print it's ingrediants 
 and show videos for how to make this dish step by step
 ```
 
+```java
+for(int i = 0 ; i < bills.size() ; i++){
+      if(bills.get(i).getId() == BillId){
+      myBill = bills.get(i) ;
+      break;
+  }
+
+```
 
 Screens 
 ========
