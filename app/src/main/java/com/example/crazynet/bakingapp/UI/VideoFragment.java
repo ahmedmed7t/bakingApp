@@ -113,6 +113,78 @@ public class VideoFragment extends Fragment{
             mExoPlayer.prepare(mediaSource);
             mExoPlayer.seekTo(time);
             mExoPlayer.setPlayWhenReady(true);
+          /*  mExoPlayer.addListener(new ExoPlayer.EventListener() {
+
+                @Override
+                public void onTimelineChanged(Timeline timeline, Object manifest) {
+
+                }
+
+                @Override
+                public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
+
+                }
+
+                @Override
+                public void onLoadingChanged(boolean isLoading) {
+
+                }
+
+                @Override
+                public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
+
+                }
+
+                @Override
+                public void onRepeatModeChanged(int repeatMode) {
+
+                }
+
+                @Override
+                public void onShuffleModeEnabledChanged(boolean shuffleModeEnabled) {
+
+                }
+
+                @Override
+                public void onPlayerError(ExoPlaybackException error) {
+
+                }
+
+                @Override
+                public void onPositionDiscontinuity(int reason) {
+
+                }
+
+                @Override
+                public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
+
+                }
+
+                @Override
+                public void onSeekProcessed() {
+
+                }
+            });
+
+            MediaSessionCompat mediaSessionCompat = new MediaSessionCompat(this.getContext(), "media");
+            mediaSessionCompat.setRepeatMode(PlaybackStateCompat.REPEAT_MODE_ALL);
+            mediaSessionCompat.setCallback(new MediaSessionCompat.Callback() {
+                @Override
+                public void onPlay() {
+                    super.onPlay();
+                    Toast.makeText(VideoFragment.this.getContext(), "Played", Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                public void onPause() {
+                    super.onPause();
+                    Toast.makeText(VideoFragment.this.getContext(), "paused", Toast.LENGTH_LONG).show();
+                }
+            });
+
+            MediaSessionConnector mediaSessionConnector =
+                    new MediaSessionConnector(mediaSessionCompat);
+            mediaSessionConnector.setPlayer(mExoPlayer, null);*/
         }
     }
 
