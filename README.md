@@ -11,9 +11,9 @@ and show videos for how to make this dish step by step
 
 Screens 
 ========
-![Optional Text](E:\AndroidStudioProjects\bakingApp\screens\result_full1.png)
-![Optional Text](E:\AndroidStudioProjects\bakingApp\screens\result_full2.png)
-![Optional Text](E:\AndroidStudioProjects\bakingApp\screens\result_full.png)
+![first screen](screens\result_full1.png)
+![second screen](E:\AndroidStudioProjects\bakingApp\screens\result_full2.png)
+![third screen](E:\AndroidStudioProjects\bakingApp\screens\result_full.png)
 
 
 
