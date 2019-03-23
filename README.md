@@ -5,10 +5,10 @@ this app is made by Ahmed Medhat
 it's for a usacity android development nanoDegree program
 
 
-<p>
+`
 it get 4 dishes and print it's ingrediants 
 and show videos for how to make this dish step by step
-</p>
+`
 
 
 Screens 
@@ -24,6 +24,5 @@ Screens
 </p>
 
 
-```
-this is a special text
-```
+
+
