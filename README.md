@@ -8,14 +8,6 @@ it get 4 dishes and print it's ingrediants
 and show videos for how to make this dish step by step
 ```
 
-```java
-for(int i = 0 ; i < bills.size() ; i++){
-      if(bills.get(i).getId() == BillId){
-      myBill = bills.get(i) ;
-      break;
-  }
-
-```
 
 Screens 
 ========
@@ -28,14 +20,3 @@ Screens
      
 <img src="https://user-images.githubusercontent.com/37122820/54866847-bf78dd80-4d81-11e9-881e-aeccd8deb908.png" width="200" height="400" hspace="20">
 </p>
-
-
-# Heading
-
-Medhat
-
-ahmed medhat
-
-## Heading
-
-### Heading
