@@ -11,7 +11,7 @@ and show videos for how to make this dish step by step
 
 Screens 
 ========
-![first screen](screens\result_full1.png)
+![result_full1](https://user-images.githubusercontent.com/37122820/54866837-8fc9d580-4d81-11e9-9a42-790d13064232.png)
 ![second screen](E:\AndroidStudioProjects\bakingApp\screens\result_full2.png)
 ![third screen](E:\AndroidStudioProjects\bakingApp\screens\result_full.png)
 
