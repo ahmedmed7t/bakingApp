@@ -13,9 +13,9 @@ and show videos for how to make this dish step by step
 
 Screens 
 ========
-![result_full1](https://user-images.githubusercontent.com/37122820/54866837-8fc9d580-4d81-11e9-9a42-790d13064232.png | width=100 | height = 250 )
-![result_full2](https://user-images.githubusercontent.com/37122820/54866845-b7b93900-4d81-11e9-87e8-5bbc09ead047.png | width=100 | height = 250)
-![result_full](https://user-images.githubusercontent.com/37122820/54866847-bf78dd80-4d81-11e9-881e-aeccd8deb908.png | width=100 | height = 250)
+![result_full1](https://user-images.githubusercontent.com/37122820/54866837-8fc9d580-4d81-11e9-9a42-790d13064232.png {:height="700px" width="400px"} )
+![result_full2](https://user-images.githubusercontent.com/37122820/54866845-b7b93900-4d81-11e9-87e8-5bbc09ead047.png {:height="700px" width="400px"} )
+![result_full](https://user-images.githubusercontent.com/37122820/54866847-bf78dd80-4d81-11e9-881e-aeccd8deb908.png {:height="700px" width="400px"} )
 
 
 
